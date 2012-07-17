@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'chunkfive';
+    src: url('/fonts/chunkfive/Chunkfive.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'lobster';
+    src: url('/fonts/lobster/Lobster.otf');
+    font-weight: normal;
+    font-style: normal;
+
+}

@@ -1,0 +1,31 @@
+doctype 5
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/master.css', type="text/css", media="screen")
+    link(rel='stylesheet', href='/stylesheets/fonts.css')
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.brand(href="/") Product Name
+          ul.nav
+            li 
+              a(href="/") Home
+            li 
+              a(href="/Login") Login
+    .container
+      .jumbotron
+        h1 Node.js
+        p nodejs boilerplate using twitter bootstrap
+      section#wrapper!= body
+          footer.footer 
+            section.row-fluid
+              section.span3
+                  p This is a footer section This is a footer section This is a footer section
+              section.span3
+                  p This is a footer section This is a footer section This is a footer section
+              section.span3
+                  p This is a footer section This is a footer section This is a footer section
+              section.span3
+                  p This is a footer section This is a footer section This is a footer section

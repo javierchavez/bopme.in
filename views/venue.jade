@@ -1,0 +1,18 @@
+div#navigation
+  a(href='/') home
+
+div
+  script(type='text/javascript')
+    function fillVenue(){
+        var venue = !{venue};
+        var whole = " "
+        var str = "<p>"
+        var end = "</p>"
+        for(var i = 0; i < venue.length; i++){
+            whole += str + "" + i + ". " + venue[i].name + " " + venue[i].hereNow.count + " are here now."+ end;
+        }
+        document.write(whole);
+    }
+    fillVenue();
+
+p
