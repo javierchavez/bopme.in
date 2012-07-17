@@ -6,7 +6,9 @@ mongoose.connect('mongodb:localhost/bopmein');
 
 var User = exports.User = mongoose.model("User", new Schema({
   name: String,
-  location: String
+  description: String,
+  twitter: String
+
 }));
 
 var Room = exports.Room = mongoose.model("Room", new Schema({

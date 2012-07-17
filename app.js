@@ -57,7 +57,7 @@ app.get('/callback', function (req, res) {
     }
   });
 });
-// model.Room.findOne({ name: "Javier Chavez"}, function (err, doc){});
+// model.Room.findOne({ name: "Rails Conf"}, function (err, doc){});
 
 //  for now
 app.get('/venue',function (req, res) {
