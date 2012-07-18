@@ -1,0 +1,65 @@
+script(src='/socket.io/socket.io.js')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js')
+
+script
+	if (navigator.geolocation) {
+		var timeoutVal = 10 * 1000 * 1000;
+		navigator.geolocation.getCurrentPosition(
+			displayPosition,
+			displayError,
+			{ enableHighAccuracy: true, timeout: timeoutVal, maximumAge: 0 }
+		);
+	}
+	else {
+		alert("Geo-location is not supported by this browser");
+	}
+	var lat;
+	var lon;
+	
+	function displayPosition(position) {
+		lat = position.coords.latitude;
+		lon = position.coords.longitude;
+	}
+	
+	function displayError(error) {
+		var errors = {
+			1: 'Permission denied',
+			2: 'Position unavailable',
+			3: 'Request timeout'
+		};
+		alert("Error: " + errors[error.code]);
+	}
+
+	var socket = io.connect('http://localhost:3000');
+	socket.on('connect', function(){
+		socket.emit('adduser', prompt("What's your name?"), lat, lon);
+	});
+	socket.on('updatechat', function (username, data) {
+		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+	});
+	socket.on('updateusers', function(data) {
+		$('#users').empty();
+		$.each(data, function(key, value) {
+			$('#users').append('<div>' + key + '</div>');
+		});
+	});
+
+	$(function(){
+		$('#datasend').click( function() {
+			var message = $('#data').val();
+			$('#data').val('');
+			socket.emit('sendchat', message);
+		});
+		$('#data').keypress(function(e) {
+			if(e.which == 13) {
+			$('#datasend').focus().click();
+			}
+		});
+	});
+
+div.row-fluid
+	div.well.span4#users
+	div.well.span8#conversation
+div.span6.pull-right
+	input.input-xlarge#data
+	button.btn.btn-success#datasend Send

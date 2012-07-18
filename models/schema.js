@@ -7,7 +7,9 @@ mongoose.connect('mongodb:localhost/bopmein');
 var User = exports.User = mongoose.model("User", new Schema({
   name: String,
   description: String,
-  twitter: String
+  twitter: String,
+  lat: Number,
+  lon: Number
 
 }));
 

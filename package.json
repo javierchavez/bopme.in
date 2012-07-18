@@ -7,5 +7,6 @@
     , "jade": ">= 0.0.1"
     , "mongoose": "2.7.0"
     , "node-foursquare-2": "0.1.5"
+    , "socket.io": "0.8.4"
   }
 }
